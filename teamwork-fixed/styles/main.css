@@ -26,8 +26,7 @@ body {
 }
 
 nav {
-    border: 2px solid gray;
-    background-color: rgba(225, 82, 65, 255);
+    background-color: rgba(225, 82, 64, 255);
     color: white;
 
 }
@@ -38,13 +37,25 @@ li:hover {
 
 }
 
-li {
-    display: inline;
-    font-size: 20px;
-}
+
 
 .navigation {
-    border: 2px solid green;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.navigation nav ul {
+   display: flex;
+}
+
+.navigation nav ul li{
+    display: flex;
+ }
+ 
+
+.navigation nav ul a {
+    margin: 12px 24px;
+    font-size: 20px;
+    
 }
 
 
@@ -100,18 +111,18 @@ h2 {
     justify-content: space-evenly;
 }
 
-.top-left :first-child{
+.top-left :first-child {
     font-size: 25px;
-    font-weight:700;
+    font-weight: 700;
 }
 
-.top-left :nth-child(2){
+.top-left :nth-child(2) {
     font-weight: 700;
     font-size: 15px;
     line-height: 20px;
 }
 
-.top-left :nth-child(3){
+.top-left :nth-child(3) {
     font-weight: 700;
     font-size: 12px;
     opacity: 0.5;
@@ -148,18 +159,18 @@ img {
     justify-content: space-evenly;
 }
 
-.bottom-right :first-child{
+.bottom-right :first-child {
     font-size: 25px;
-    font-weight:700;
+    font-weight: 700;
 }
 
-.bottom-right :nth-child(2){
+.bottom-right :nth-child(2) {
     font-weight: 700;
     font-size: 15px;
     line-height: 20px;
 }
 
-.bottom-right :nth-child(3){
+.bottom-right :nth-child(3) {
     font-weight: 700;
     font-size: 12px;
     opacity: 0.5;
