@@ -12,7 +12,6 @@ section {
     flex-direction: column;
     align-items: center;
     gap: 24px;
-    padding: 48px 48px;
 }
 
 button:hover{
@@ -73,9 +72,13 @@ header .header-menu nav ul li:hover {
 }
 
 section.section-two,
-section.section-three {
+section.section-three{
     display: flex;
     flex-direction: row;
+    padding: 10vh 20vw;
+}
+
+section.section-four{
     padding: 10vh 20vw;
 }
 
