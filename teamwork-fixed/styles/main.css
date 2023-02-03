@@ -14,13 +14,7 @@ body {
 
 }
 
-/*heaader*/
 
-
-header {
-    height: 300px;
-    background-color: rgba(225, 82, 65, 255);
-}
 
 nav {
     background-color: rgba(225, 82, 64, 255);
@@ -54,6 +48,11 @@ li:hover {
 }
 
 
+header {
+    height: 300px;
+    background-color: rgba(225, 82, 65, 255);
+}
+
 .header-text {
     color: white;
     display: flex;
@@ -83,7 +82,6 @@ h2 {
 }
 
 
-/*Main*/
 
 .content-top {
     height: 300px;
@@ -171,7 +169,7 @@ img {
 }
 
 
-/*Footer*/
+
 
 .footer-top {
     height: 100px;
