@@ -105,11 +105,17 @@ footer .icons {
     gap: 12px;
 }
 
+
+
 img {
     margin: 32px auto;
     width: 16px;
     color: red;
     opacity: 0.65;
+}
+
+footer .icons img:hover {
+    opacity: 1;
 }
 
 footer .footer-text {
