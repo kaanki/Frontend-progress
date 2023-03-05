@@ -45,15 +45,15 @@ function dunyaninYuzdesi1(pop) {
 // console.log(dunyaninYuzdesi4(200))
 
 
-function nufusutanimla(ulke, nufus) {
-    return `${ulke}'de ${nufus} milyon insan var,
-     ki bu da dünyanın yaklaşık %${dunyaninYuzdesi1(nufus)}'sidir`
-}
+// function nufusutanimla(ulke, nufus) {
+//     return `${ulke}'de ${nufus} milyon insan var,
+//      ki bu da dünyanın yaklaşık %${dunyaninYuzdesi1(nufus)}'sidir`
+// }
 
-const ulke1 = nufusutanimla('Almanya', 2986);
-const ulke2 = nufusutanimla('Fransa', 30);
-const ulke3 = nufusutanimla('Türkiye', 500);
+// const ulke1 = nufusutanimla('Almanya', 2986);
+// const ulke2 = nufusutanimla('Fransa', 30);
+// const ulke3 = nufusutanimla('Türkiye', 500);
 
-console.log(ulke1);
-console.log(ulke2);
-console.log(ulke3);
+// console.log(ulke1);
+// console.log(ulke2);
+// console.log(ulke3);

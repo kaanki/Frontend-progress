@@ -122,3 +122,11 @@ function logger() {
 // -------------------Fonksiyonları Çağıran Diğer Fonksiyonlar Bitiş-------------------
 
 
+const matHesap = function (sayi1, sayi2) {
+    const birinci = sayi1 * 10
+    const ikinci = sayi2 * 70
+    return birinci,ikinci
+
+}
+
+
