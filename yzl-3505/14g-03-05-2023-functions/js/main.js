@@ -76,17 +76,49 @@ function logger() {
 
 // -------------------Fonksiyonları Çağıran Diğer Fonksiyonlar Başlangıç-------------------
 
-function meyveleriParcala(meyve) {
-    return meyve * 4;
-}
+// function meyveleriParcala(meyve, adet) {
+//     return meyve === 'elmalar' ? adet * 4 : adet * 3;
+// }
 
-function meyveIsleme(elmalar, portakallar) {
-    const elmaParcalari = meyveleriParcala(elmalar);
-    const portakalParcalari = meyveleriParcala(portakallar);
-    const meyveSuyu = `${elmaParcalari} elma ve ${portakalParcalari} portakal`
-    return meyveSuyu
-}
+// function meyveIsleme(elmalar, portakallar) {
+//     const elmaParcalari = meyveleriParcala('elmalar', elmalar);
+//     const portakalParcalari = meyveleriParcala('portakallar', portakallar);
+//     const meyveSuyu = `${elmaParcalari} elma ve ${portakalParcalari} portakal`
+//     return meyveSuyu
+// }
 
-console.log(meyveIsleme(2, 3))
+// console.log(meyveIsleme(2, 3))
 
+// const toplama = (a, b) => a + b
+// const cikarma = (a, b) => a - b
+// const carpma = (a, b) => a * b
+// const bolme = (a, b) => a / b
+
+// const hesap = function (sayi1, sayi2, islem) {
+//     return islem(sayi1, sayi2)
+// }
+
+// const ekle = hesap(10, 3, toplama)
+// console.log(ekle)
+
+// const yasHesap = function (dogumyili) {
+//     return 2048 - dogumyili
+// }
+
+// const emeliligeKalanSure = function (dogumYili, ad) {
+//     const yas = yasHesap(dogumYili)
+//     const emeklilik = 65 - yas
+//     return `Sayın ${ad}, 
+//     ${emeklilik > 0 
+//         ? `${emeklilik} yıl içinde emekli oluyor`
+//         : `${emeklilik * -1} yıldır zaten emeklisiniz`
+//     }`
+//     // return `${ad} ${emeklilik} içinde emekli oluyor`
+// }
+
+
+// console.log(emeliligeKalanSure(1986, 'kaan'))
+// console.log(emeliligeKalanSure(1970, 'ahmet'))
 // -------------------Fonksiyonları Çağıran Diğer Fonksiyonlar Bitiş-------------------
+
+
