@@ -82,3 +82,39 @@
 //   isteklerini temsil eden bir array verildiğinde, herhangi bir ağ isteğinin
 // 'pending' status'üne sahip olması durumunda 'inProgress' değişkenine
 // 'true' boolean değerini atayın.
+
+const trips = [{ distance: 34 }, { distance: 12 }, { distance: 1 }];
+const totalDistance = trips.reduce(function (total, trip) {
+  return total + trip.distance;
+}, 0);
+
+console.log(totalDistance);
+// Kat edilen tüm mesafelerin toplamını bulmak için 'reduce' yardımcısını kullanın.
+//  Sonucu 'totalDistance' değişkenine atayın
+
+const passengers = [
+  { type: "oturan" },
+  { type: "ayakta" },
+  { type: "oturan" },
+  { type: "oturan" },
+  { type: "ayakta" },
+];
+const deskTypes = passengers.reduce(
+  function (result, passenger) {
+    if (passenger.type === "oturan") {
+      result.oturan++;
+    } else {
+      result.ayakta++;
+    }
+    return result;
+  },
+  {
+    oturan: 0,
+    ayakta: 0,
+  }
+);
+
+console.log(deskTypes);
+// Oturan ve ayakta duran yolcuların sayısını gösteren bir nesne oluşturmak için
+// 'reduce' yardımcısını kullanın. Döndürülen nesne '{ oturan: 3, ayakta: 2 }'
+// biçiminde olmalıdır.Başlangıç değeri verilmiştir.

@@ -1,4 +1,4 @@
-'use strict'
+"use strict";
 
 // let ehliyetiVarMı = false
 
@@ -723,22 +723,30 @@
 // console.log(someName);
 
 // -------------Every&Some Bitiş--------------------------------
+// -------------Reduce Başlangıç--------------------------------
 
+// const numbers = [10, 20, 30];
 
+// let sum = 0;
 
+// for (let i = 0; i < numbers.length; i++) {
+//   sum += numbers[i];
+// }
+// console.log(sum);
 
+// const reduceNumbers = numbers.reduce(function (sum, number) {
+//   return sum + number; // 0 + 10 --> 10, 10 + 20 --> 30 + 30
+// }, 0);
+// console.log(reduceNumbers);
 
+// const primaryColors = [{ color: "red" }, { color: "blue" }, { color: "green" }];
 
+// const reduceColors = primaryColors.reduce(function (previous, primaryColor) {
+//   previous.push(primaryColor.color);
+//   return previous;
+// }, []);
 
-
-
-
-
-
-
-
-
-
-
-
-
+// console.log(reduceColors);
+// -------------Reduce Bitiş--------------------------------
+// -------------Reduce Bitiş--------------------------------
+// -------------Reduce Bitiş--------------------------------
