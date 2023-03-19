@@ -1,4 +1,3 @@
-
 // const numbers = [15, 25, 35, 45, 55, 65, 75, 85, 95]
 // const filteredNumbers = numbers.filter(function (number) {
 //     return number>50
@@ -22,22 +21,22 @@
 // // Yalnızca admin düzeyinde erişimi olan kullanıcıları döndürün.
 // // Sonucu 'filteredUsers' değişkenine atayın.
 
-// function reject(array, iteratorFunction) { 
+// function reject(array, iteratorFunction) {
 //     return array.filter(function (element) {
 //        return !iteratorFunction(element)
 //     })
 // }
 
 // const numbers2 = [8, 10, 20, 30];
-// const lessThanFifteen = reject(numbers2, function (number) 
-// { return number > 15; }); 
+// const lessThanFifteen = reject(numbers2, function (number)
+// { return number > 15; });
 // console.log(lessThanFifteen)
-// // 'reject' adlı bir fonksiyon oluşturun.reject, 'filter' ın tersi 
+// // 'reject' adlı bir fonksiyon oluşturun.reject, 'filter' ın tersi
 // // şeklinde çalışmalıdır - Bir işlev 'true' değerini döndürürse,
 // //     öğe yeni diziye * eklenmemelidir
 // //         *.Örneğin: const numbers = [10, 20, 30];
-// // const lessThanFifteen = reject(numbers, function (number) 
-// // { return number > 15; }); 
+// // const lessThanFifteen = reject(numbers, function (number)
+// // { return number > 15; });
 // // console.log(lessThanFifteen)
 // // [ 10 ] döndürmeli;
 
@@ -57,3 +56,29 @@
 // console.log(account);
 // Bakiyesi 12 olan hesabı bulun ve 'account' değişkenine atayın.
 
+// const users = [
+//   { id: 21, hasSubmitted: true },
+//   { id: 62, hasSubmitted: false },
+//   { id: 4, hasSubmitted: true },
+// ];
+
+// const hasSubmittedusers = users.every(function (user) {
+//   return user.hasSubmitted;
+// });
+
+// console.log(hasSubmittedusers);
+// //   array verildiğinde, her kullanıcı bir istek formu gönderdiyse 'true'
+// // döndürün. Sonucu 'hasSubmitted' değişkenine atayın.
+
+// const requests = [
+//   { url: "/photos", status: "complete" },
+//   { url: "/albums", status: "pending" },
+//   { url: "/users", status: "failed" },
+// ];
+// const inProgressNetwork = requests.some(function (request) {
+//   return request.status === "pending";
+// });
+// console.log(inProgressNetwork);
+//   isteklerini temsil eden bir array verildiğinde, herhangi bir ağ isteğinin
+// 'pending' status'üne sahip olması durumunda 'inProgress' değişkenine
+// 'true' boolean değerini atayın.

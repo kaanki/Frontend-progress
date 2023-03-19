@@ -676,6 +676,53 @@
 
 // console.log(postForComment(listOfPosts, comment));
 // -------------Find Bitiş--------------------------------
+// -------------Every&Some Başlangıç--------------------------------
+
+// const computers = [
+//     { name: "Apple", ram: 64 },
+//     { name: "Asus", ram: 16 },
+//     { name: "Acer", ram: 32 },
+// ]
+
+// let allComputerCanRunProgram = true
+// let someComputerCanRunProgram = false
+
+// for (let i = 0; i < computers.length; i++) {
+//     let computer = computers[i]
+//     if (computer.ram < 32) {
+//         allComputerCanRunProgram = false
+//     }
+//     else {
+//         someComputerCanRunProgram = true
+//     }
+// }
+
+// allComputerCanRunProgram = computers.every(function (computer) {
+//     return computer.ram > 32
+// })
+
+// someComputerCanRunProgram = computers.some(function (computer) {
+//     return computer.ram > 32
+// })
+
+// console.log(allComputerCanRunProgram);
+// console.log(someComputerCanRunProgram);
+
+// const names = ["namık", "eda", "engin"]
+
+// const isEveryName = names.every(function (name) {
+//     return name.length > 4
+// })
+
+// console.log(isEveryName);
+
+// const someName = names.some(function (name) {
+//     return name.length > 4
+// })
+
+// console.log(someName);
+
+// -------------Every&Some Bitiş--------------------------------
 
 
 
