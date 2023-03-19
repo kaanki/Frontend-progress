@@ -748,5 +748,30 @@
 
 // console.log(reduceColors);
 // -------------Reduce Bitiş--------------------------------
-// -------------Reduce Bitiş--------------------------------
-// -------------Reduce Bitiş--------------------------------
+// -------------Rest&Spread Başlangıç--------------------------------
+
+// function addNumbers(...numbers) {
+//   return numbers.reduce(function (sum, number) {
+//     return sum + number;
+//   }, 0);
+// }
+
+// console.log(addNumbers(1, 2, 3, 4, 5, 6, 7));
+
+// const defaultColors = ["red", "green"];
+// const userFavorite = ["yellow", "blue"];
+// const primaryColors = ["orange", "aqua"];
+
+// console.log(defaultColors.concat(userFavorite));
+// console.log(["black", ...primaryColors, ...defaultColors, ...userFavorite]);
+
+function shoppingList(...items) {
+  if (items.indexOf("portakal") < 0) {
+    return ["portakal", ...items];
+  }
+  return items;
+}
+
+console.log(shoppingList("süt", "ekmek", "yumurta", "portakal"));
+
+// -------------Rest&Spread Bitiş--------------------------------
