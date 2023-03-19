@@ -1,0 +1,39 @@
+html {
+  font-size: 30px;
+}
+
+article {
+  font-size: 50px;
+}
+h2 {
+  font-size: 3em;
+  margin-left: 1em;
+}
+
+p {
+  font-size: 0.8em;
+}
+
+h3 {
+  font-size: 1.5em;
+}
+
+button {
+  font-size: 1em;
+  padding: 0 1em;
+  border-radius: 0.5em;
+  background-color: #6d6875;
+  color: #e5986e;
+}
+
+ul {
+  font-size: 0.7em;
+}
+
+#rems h3 {
+  font-size: 2rem;
+}
+
+#rems ul {
+  font-size: 0.8rem;
+}

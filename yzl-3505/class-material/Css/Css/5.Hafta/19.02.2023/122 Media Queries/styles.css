@@ -1,0 +1,20 @@
+/* 
+Media Queries
+Responsive Design
+Style Elements on Different Screen Sizes
+min-width: --- starting from
+max-width: --- up to
+Mobile First
+*/
+
+
+@media screen and (max-width: 768px) {
+  body {
+    background: green;
+  }
+
+  .banner {
+    margin-top: 60px;
+    background: pink;
+  }
+}
