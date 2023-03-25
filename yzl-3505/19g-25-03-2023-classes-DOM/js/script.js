@@ -78,4 +78,30 @@
 //   document.body.style.backgroundColor = "gray";
 // });
 
+const navigationLink = document.getElementById("navigation");
+
+const btnClear = document.getElementById("clear");
+const todoList = document.querySelector("ul");
+
+btnClear.addEventListener("click", function () {
+  while (todoList.firstChild) {
+    todoList.removeChild(todoList.firstChild);
+  }
+});
+
+const todoMaker = function (text) {
+    const todo = document.createElement('li')
+    todo.textContent = text
+    todoList.appendChild(todo);
+};
+
+const input = document.getElementById("user-todo");
+const form = document.querySelector("form");
+form.addEventListener("submit", function (e) {
+  e.preventDefault();
+  todoMaker(input.value);
+  console.log(input.value);
+  input.value = "";
+});
+
 //----------------------------- DOM Bitiş -----------------------------
