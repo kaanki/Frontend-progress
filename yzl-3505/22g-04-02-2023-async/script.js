@@ -86,7 +86,6 @@ const showUserData = function (data, className = "") {
 //     .then((data) => showUserData(data, "new-user"));
 // };
 
-
 // const getUserData = function () {
 //   fetch(url)
 //     .then((response) => {
@@ -112,32 +111,28 @@ const showUserData = function (data, className = "") {
 //     });
 // };
 
+const getJSON = function (url, errorMessage = `Bir şeyler ters gitti`) {
+  return fetch(url).then((response) => {
+    if (!response.ok) throw new Error(`${errorMessage} - ${response.message}`);
+    return response.json();
+  });
+};
 
-const getUserData = function () {
-    fetch(url)
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error("Kullanıcı bulunamadı - " + response.status);
-        }
-        return response.json();
-      })
-      .then((data) => {
-        showUserData(data);
-        return fetch(data.baskent);
-      })
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error("Kullanıcı bulunamadı - " + response.status);
-        }
-        response.json();
-      })
-      .then((data) => showUserData(data, "new-user"))
-      .catch((err) => showError(`${err.message} 🎃🎃`))
-      .finally(() => {
-        console.log("sitemize hoş geldiniz");
-      });
-  };
+const getUserData = function (url) {
+  getJSON(url, "Kullanıcı bulunamadı")
+    .then((data) => {
+      showUserData(data);
+      return getJSON(url, "ikinci Kullanıcı bulunamadı");
+    })
+    .then((data) => showUserData(data, "new-user"))
+    .catch((err) => showError(`${err.message} 🎃🎃`))
+    .finally(() => {
+      console.log("sitemize hoş geldiniz");
+    });
+};
 
-getUserBtn.addEventListener("click", getUserData);
+getUserBtn.addEventListener("click", function () {
+    getUserData(url)
+});
 
 //-------------------Promise Bitiş----------------------
