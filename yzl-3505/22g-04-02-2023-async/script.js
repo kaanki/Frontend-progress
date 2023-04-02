@@ -4,12 +4,12 @@ const cartContainer = document.querySelector(".container");
 const details = document.querySelector(".details");
 const imgContainer = document.querySelector(".img-container");
 const getUserBtn = document.getElementById("get-user-btn");
-const url = "https://random-data-api.com/api/v2/users?response_type=json";
+const url = "https://random-data-api.com/api/v2/users";
 
 ///////////////////////////////////////
 
 const showError = function (msg) {
-    cartContainer.insertAdjacentText("beforeend",msg)
+  cartContainer.insertAdjacentText("beforeend", msg);
 };
 
 const showUserData = function (data, className = "") {
@@ -86,17 +86,57 @@ const showUserData = function (data, className = "") {
 //     .then((data) => showUserData(data, "new-user"));
 // };
 
+
+// const getUserData = function () {
+//   fetch(url)
+//     .then((response) => {
+//       if (!response.ok) {
+//         throw new Error("Kullanıcı bulunamadı - " + response.status);
+//       }
+//       return response.json();
+//     })
+//     .then((data) => {
+//       showUserData(data);
+//       return fetch(data.baskent);
+//     })
+//     .then((response) => {
+//       if (!response.ok) {
+//         throw new Error("Kullanıcı bulunamadı - " + response.status);
+//       }
+//       response.json();
+//     })
+//     .then((data) => showUserData(data, "new-user"))
+//     .catch((err) => showError(`${err.message} 🎃🎃`))
+//     .finally(() => {
+//       console.log("sitemize hoş geldiniz");
+//     });
+// };
+
+
 const getUserData = function () {
-  fetch(url)
-    .then((response) => response.json())
-    .then((data) => {
-      showUserData(data);
-      return fetch(url);
-    })
-    .then((response) => response.json())
-    .then((data) => showUserData(data, "new-user"))
-    .catch((err) => showError(`${err.message} 🎃🎃`));
-};
+    fetch(url)
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Kullanıcı bulunamadı - " + response.status);
+        }
+        return response.json();
+      })
+      .then((data) => {
+        showUserData(data);
+        return fetch(data.baskent);
+      })
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Kullanıcı bulunamadı - " + response.status);
+        }
+        response.json();
+      })
+      .then((data) => showUserData(data, "new-user"))
+      .catch((err) => showError(`${err.message} 🎃🎃`))
+      .finally(() => {
+        console.log("sitemize hoş geldiniz");
+      });
+  };
 
 getUserBtn.addEventListener("click", getUserData);
 
