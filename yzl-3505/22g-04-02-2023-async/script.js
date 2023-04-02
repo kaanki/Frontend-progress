@@ -132,7 +132,17 @@ const getUserData = function (url) {
 };
 
 getUserBtn.addEventListener("click", function () {
-    getUserData(url)
+  getUserData(url);
 });
 
+const geoLocation = function (lat, lng) {
+  fetch(
+    `https://geocode.xyz/${lat},${lng}?geoit=json&auth=251328541052023517027x14455`
+  )
+    .then((res) => res.json())
+    .then((data) => console.log(data));
+};
+
+
+geoLocation(41.0222,28.196)
 //-------------------Promise Bitiş----------------------
