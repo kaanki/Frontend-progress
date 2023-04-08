@@ -4,7 +4,7 @@ const cartContainer = document.querySelector(".container");
 const details = document.querySelector(".details");
 const imgContainer = document.querySelector(".img-container");
 const getUserBtn = document.getElementById("get-user-btn");
-const url = "https://random-data-api.com/api/v2/users";
+const url = "https://random-data-api.com/api/v2/user";
 
 ///////////////////////////////////////
 
@@ -118,38 +118,80 @@ const getJSON = function (url, errorMessage = `Bir şeyler ters gitti`) {
   });
 };
 
-const getUserData = function (url) {
-  getJSON(url, "Kullanıcı bulunamadı")
-    .then((data) => {
-      showUserData(data);
-      return getJSON(url, "ikinci Kullanıcı bulunamadı");
-    })
-    .then((data) => showUserData(data, "new-user"))
-    .catch((err) => showError(`${err.message} 🎃🎃`))
-    .finally(() => {
-      console.log("sitemize hoş geldiniz");
-    });
+// const getUserData = function (url) {
+//   getJSON(url, "Kullanıcı bulunamadı")
+//     .then((data) => {
+//       showUserData(data);
+//       return getJSON(url, "ikinci Kullanıcı bulunamadı");
+//     })
+//     .then((data) => showUserData(data, "new-user"))
+//     .catch((err) => showError(`${err.message} 🎃🎃`))
+//     .finally(() => {
+//       console.log("sitemize hoş geldiniz");
+//     });
+// };
+
+// getUserBtn.addEventListener("click", function () {
+//   getUserData(url);
+// });
+
+// const geoLocation = function (lat, lng) {
+//   fetch(
+//     `https://geocode.xyz/${lat},${lng}?geoit=json&auth=499855967162309543863x7033 `
+//   )
+//     .then((res) => {
+//       if (!res.ok) {
+//         throw new Error(`GeoCoding ile ilgili problem`)
+//       }
+//       return res.json();
+//     })
+//     .then((data) => {
+//       console.log(data);
+//       console.log(`${data.country},${data.city}`);
+//     }).catch(err => console.error(err.message));
+// };
+
+// geoLocation(41.0222, 28.196);
+
+// ------------------- async başlangıç -------------------
+
+const geoPosition = function () {
+  return new Promise(function (resolve, reject) {
+    // navigator.geolocation.getCurrentPosition(
+    //   (location) => resolve(location),
+    //   (err) => reject(err)
+    // );
+    navigator.geolocation.getCurrentPosition(resolve, reject);
+  });
 };
 
-getUserBtn.addEventListener("click", function () {
-  getUserData(url);
-});
-
-const geoLocation = function (lat, lng) {
-  fetch(
-    `https://geocode.xyz/${lat},${lng}?geoit=json&auth=499855967162309543863x7033 `
-  )
-    .then((res) => {
-      if (!res.ok) {
-        throw new Error(`GeoCoding ile ilgili problem`)
-      }
-      return res.json();
-    })
-    .then((data) => {
-      console.log(data);
-      console.log(`${data.country},${data.city}`);
-    }).catch(err => console.error(err.message));
+const getUserData = async function () {
+  // Geolocation
+  try {
+    const location = await geoPosition();
+    console.log(location);
+    const { latitude: lat, longitude: lng } = location.coords;
+    //Reverse GeoCoding
+    const resGeo = await fetch(
+      `https://geocode.xyz/${lat},${lng}?geoit=json&auth=499855967162309543863x7033 `
+    );
+    const dataGeo = await resGeo.json();
+    console.log(dataGeo);
+    console.log(`${dataGeo.country}, ${dataGeo.city}`);
+    //Users
+    const res = await fetch(url);
+    const data = await res.json();
+    console.log(data);
+    showUserData(data);
+  } catch (err) {
+    console.log(`Bir şeyler ters gitti 💣💣 ${err.message}`);
+    showError(`Bir şeyler ters gitti 💣💣 ${err.message}`)
+  }
 };
 
-geoLocation(41.0222, 28.196);
+getUserData();
+
+
+// ------------------- async bitiş -------------------
+
 //-------------------Promise Bitiş----------------------

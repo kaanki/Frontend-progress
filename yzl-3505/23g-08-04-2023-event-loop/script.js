@@ -57,38 +57,48 @@ const url = "https://random-data-api.com/api/v2/users";
 // Promise.resolve("abc").then((x) => console.log(x));
 // Promise.reject("def").catch((x) => console.error(x));
 
-const geoLocation = function () {
-  geoPosition()
-    .then((konum) => {
-      const { latitude: lat, longitude: lng } = konum.coords;
-      return fetch(
-        `https://geocode.xyz/${lat},${lng}?geoit=json&auth=499855967162309543863x7033 `
-      );
-    })
-    .then((res) => {
-      if (!res.ok) {
-        throw new Error(`GeoCoding ile ilgili problem`);
-      }
-      return res.json();
-    })
-    .then((data) => {
-      console.log(data);
-      console.log(`${data.country},${data.city}`);
-    })
-    .catch((err) => console.error(err.message));
-};
+// const geoLocation = function () {
+//   geoPosition()
+//     .then((konum) => {
+//       const { latitude: lat, longitude: lng } = konum.coords;
+//       return fetch(
+//         `https://geocode.xyz/${lat},${lng}?geoit=json&auth=499855967162309543863x7033 `
+//       );
+//     })
+//     .then((res) => {
+//       if (!res.ok) {
+//         throw new Error(`GeoCoding ile ilgili problem`);
+//       }
+//       return res.json();
+//     })
+//     .then((data) => {
+//       console.log(data);
+//       console.log(`${data.country},${data.city}`);
+//     })
+//     .catch((err) => console.error(err.message));
+// };
 
-console.log("Konum öğrenme");
+// console.log("Konum öğrenme");
 
-const geoPosition = function () {
-  return new Promise(function (resolve, reject) {
-    // navigator.geolocation.getCurrentPosition(
-    //   (location) => resolve(location),
-    //   (err) => reject(err)
-    // );
-    navigator.geolocation.getCurrentPosition(resolve, reject);
-  });
-};
+// const geoPosition = function () {
+//   return new Promise(function (resolve, reject) {
+//     // navigator.geolocation.getCurrentPosition(
+//     //   (location) => resolve(location),
+//     //   (err) => reject(err)
+//     // );
+//     navigator.geolocation.getCurrentPosition(resolve, reject);
+//   });
+// };
 
-getUserBtn.addEventListener("click", geoLocation);
+// getUserBtn.addEventListener("click", geoLocation);
+
+
+// ----------------------Async Başlangıç-----------------
+
+
+
+
+
+// ----------------------Async Bitiş-----------------
+
 // --------------------- Event Loop Bitiş ---------------------
