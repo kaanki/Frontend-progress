@@ -137,12 +137,19 @@ getUserBtn.addEventListener("click", function () {
 
 const geoLocation = function (lat, lng) {
   fetch(
-    `https://geocode.xyz/${lat},${lng}?geoit=json&auth=251328541052023517027x14455`
+    `https://geocode.xyz/${lat},${lng}?geoit=json&auth=499855967162309543863x7033 `
   )
-    .then((res) => res.json())
-    .then((data) => console.log(data));
+    .then((res) => {
+      if (!res.ok) {
+        throw new Error(`GeoCoding ile ilgili problem`)
+      }
+      return res.json();
+    })
+    .then((data) => {
+      console.log(data);
+      console.log(`${data.country},${data.city}`);
+    }).catch(err => console.error(err.message));
 };
 
-
-geoLocation(41.0222,28.196)
+geoLocation(41.0222, 28.196);
 //-------------------Promise Bitiş----------------------
