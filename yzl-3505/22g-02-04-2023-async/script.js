@@ -207,23 +207,53 @@ const getUserData = async function () {
 //   console.log("3: Konum alındı");
 // })();
 
-
 const getThreeUser = async function (u1, u2, u3) {
   try {
-    const user1 = await getJSON(
-      `https://jsonplaceholder.typicode.com/users/${u1}`
-    );
-    const user2 = await getJSON(
-      `https://jsonplaceholder.typicode.com/users/${u2}`
-    );
-    const user3 = await getJSON(
-      `https://jsonplaceholder.typicode.com/users/${u3}`
-    );
-    console.log([user1.name,user2.name,user3.name]);
+    // const user1 = await getJSON(
+    //   `https://jsonplaceholder.typicode.com/users/${u1}`
+    // );
+    // const user2 = await getJSON(
+    //   `https://jsonplaceholder.typicode.com/users/${u2}`
+    // );
+    // const user3 = await getJSON(
+    //   `https://jsonplaceholder.typicode.com/users/${u3}`
+    // );
+
+    //Promise.all
+    const userData = await Promise.all([
+      getJSON(`https://jsonplaceholder.typicode.com/users/${u1}`),
+      getJSON(`https://jsonplaceholder.typicode.com/users/${u2}`),
+      getJSON(`https://jsonplaceholder.typicode.com/users/${u3}`),
+    ]);
+    console.log(userData.map((d) => console.log(d.name)));
   } catch (err) {}
 };
+// getThreeUser(1, 2, 3);
 
-getThreeUser(1,2,3)
+//Promise.race
+// (async function () {
+//   const res = await Promise.race([
+//     getJSON(`https://jsonplaceholder.typicode.com/users/1`),
+//     getJSON(`https://jsonplaceholder.typicode.com/users/3`),
+//     getJSON(`https://jsonplaceholder.typicode.com/users/5`),
+//   ]);
+//   console.log(res);
+// })();
+
+const timeout = function (sec) {
+  return new Promise(function (_, reject) {
+    setTimeout(() => {
+      reject(new Error("İstekler çok uzun sürdü"));
+    }, sec);
+  });
+};
+
+Promise.race([
+  getJSON(`https://jsonplaceholder.typicode.com/users/1`),
+  timeout(1000),
+])
+  .then((res) => console.log(res))
+  .catch((err) => console.log(err));
 
 // ------------------- async bitiş -------------------
 
