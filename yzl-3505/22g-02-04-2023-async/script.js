@@ -4,7 +4,7 @@ const cartContainer = document.querySelector(".container");
 const details = document.querySelector(".details");
 const imgContainer = document.querySelector(".img-container");
 const getUserBtn = document.getElementById("get-user-btn");
-const url = "https://random-data-api.com/api/v2/user";
+const url = "https://random-data-api.com/api/v2/users";
 
 ///////////////////////////////////////
 
@@ -169,28 +169,43 @@ const getUserData = async function () {
   // Geolocation
   try {
     const location = await geoPosition();
-    console.log(location);
     const { latitude: lat, longitude: lng } = location.coords;
     //Reverse GeoCoding
     const resGeo = await fetch(
-      `https://geocode.xyz/${lat},${lng}?geoit=json&auth=499855967162309543863x7033 `
+      `https://geocode.xyz/${lat},${lng}?geoit=json&auth=499855967162309543863x7033`
     );
+    if (!resGeo.ok) throw new Error("Konum bulunamıyor.");
     const dataGeo = await resGeo.json();
-    console.log(dataGeo);
-    console.log(`${dataGeo.country}, ${dataGeo.city}`);
+    console.log(dataGeo.remaining_credits);
+    //console.log(`${dataGeo.country}, ${dataGeo.city}`);
     //Users
     const res = await fetch(url);
+    if (!res.ok) throw new Error("Kullanıcı bulunamıyor.");
     const data = await res.json();
-    console.log(data);
     showUserData(data);
+    return `${dataGeo.country}, ${dataGeo.city} 'dasınız`;
   } catch (err) {
     console.log(`Bir şeyler ters gitti 💣💣 ${err.message}`);
-    showError(`Bir şeyler ters gitti 💣💣 ${err.message}`)
+    showError(`Bir şeyler ters gitti 💣💣 ${err.message}`);
   }
 };
 
-getUserData();
+// const city = getUserData();
+//getUserData().
+// then(city => console.log(`1: ${city}`))
+// .catch((err) => console.log(`2: ${err.message}`))
+// .finally(() => console.log(`3 konum alındı`))
 
+//IIFE
+// (async function () {
+//   try {
+//     const city = await //getUserData()
+//     console.log(`1: ${city}`);
+//   } catch (error) {
+//     console.error(`${error.message}`)
+//   }
+//   console.log("3: Konum alındı");
+// })();
 
 // ------------------- async bitiş -------------------
 
