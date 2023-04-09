@@ -207,6 +207,24 @@ const getUserData = async function () {
 //   console.log("3: Konum alındı");
 // })();
 
+
+const getThreeUser = async function (u1, u2, u3) {
+  try {
+    const user1 = await getJSON(
+      `https://jsonplaceholder.typicode.com/users/${u1}`
+    );
+    const user2 = await getJSON(
+      `https://jsonplaceholder.typicode.com/users/${u2}`
+    );
+    const user3 = await getJSON(
+      `https://jsonplaceholder.typicode.com/users/${u3}`
+    );
+    console.log([user1.name,user2.name,user3.name]);
+  } catch (err) {}
+};
+
+getThreeUser(1,2,3)
+
 // ------------------- async bitiş -------------------
 
 //-------------------Promise Bitiş----------------------
